@@ -1,20 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import Shop from './navigation/Shop'
+import { useFonts } from 'expo-font'
+import { styles, colors } from './constants/theme'
+import { View, ActivityIndicator } from 'react-native'
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+const App = () => {
+	const [loaded] = useFonts({
+		'Sofia-Regular': require('../assets/fonts/SofiaSansSemiCondensed-Regular.ttf'),
+		'Sofia-Bold': require('../assets/fonts/SofiaSansSemiCondensed-Bold.ttf')
+	})
+	if(!loaded)
+		return <View style={{...styles.screen, ...styles.verticalCenter}}>
+			<ActivityIndicator size="large" color={colors.primary} />
+		</View>
+	return <Shop />
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
