@@ -1,7 +1,8 @@
-import Shop from './navigation/Shop'
+import Tabs from './navigation/Tabs'
 import { useFonts } from 'expo-font'
 import { styles, colors } from './constants/theme'
 import { View, ActivityIndicator } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
 
 const App = () => {
 	const [loaded] = useFonts({
@@ -12,6 +13,8 @@ const App = () => {
 		return <View style={{...styles.screen, ...styles.verticalCenter}}>
 			<ActivityIndicator size="large" color={colors.primary} />
 		</View>
-	return <Shop />
+	return <NavigationContainer>
+		<Tabs />
+	</NavigationContainer>
 }
 export default App

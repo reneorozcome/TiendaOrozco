@@ -2,8 +2,27 @@ import { colors } from './colors'
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
+	tabBar: {
+		borderRadius: 15,
+		bottom: 25,
+		elevation: 5,
+		height: 90,
+		left: 20,
+		position: 'absolute',
+		right: 20,
+		shadowColor: 'black',
+		shadowOffset: { width: 0, height: 10 },
+		shadowOpacity: 0.25,
+		shadowRadius: 0.25
+	},
+	tabIcon: {
+		alignItems: 'center',
+		flex: 1,
+		justifyContent: 'center'
+	},
 	screen: {
-		padding: 80
+		flexWrap: 'wrap',
+		padding: 40
 	},
 	header: {
 		alignItems: "center",
@@ -56,6 +75,12 @@ const styles = StyleSheet.create({
 		fontSize: 14,
 		textAlign: 'center',
 		textTransform: 'uppercase'
+	},
+	listItem: {
+		marginHorizontal: 5,
+		marginVertical: 15,
+		textAlign: 'center',
+		width: 120
 	},
 	verticalCenter: {
 		height: '100%',
