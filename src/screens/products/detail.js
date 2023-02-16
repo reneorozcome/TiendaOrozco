@@ -1,8 +1,9 @@
 import { View, Text } from 'react-native'
+import { useSelector } from 'react-redux'
 import { styles as theme } from '../../constants/theme'
 
-const ProductDetail = ({ navigation, route }) => {
-	const product = route.params.product
+const ProductDetail = () => {
+	const product = useSelector(state => state.product.selected)
 
 	return <View style={theme.screen}>
 		<Text>{product.name}</Text>
