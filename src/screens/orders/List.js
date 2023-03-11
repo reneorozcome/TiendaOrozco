@@ -1,12 +1,19 @@
 import OrderItem from './Item'
-import { ORDERS } from '../../data'
+import { useEffect } from 'react'
 import { View, FlatList } from 'react-native'
+import { useSelector, useDispatch } from 'react-redux'
 import { styles as theme } from '../../constants/theme'
+import { getOrders, deleteOrder } from '../../store/actions/order.action'
 
-const Order = ({ navigation, route }) => {
-	const orders = ORDERS
-	const deleteItem = () => console.log('Eliminar elemento')
-	const renderItem = ({ item }) => <OrderItem item={item} onDelete={deleteItem} />
+const Order = () => {
+	const dispatch = useDispatch()
+	const onDelete = id => dispatch(deleteOrder(id))
+	const orders = useSelector(state => state.orders.list)
+	const renderItem = ({ item }) => <OrderItem item={item} onDelete={onDelete} />
+
+	useEffect(() => {
+		dispatch(getOrders())
+	}, [])
 
 	return <View style={theme.screen}>
 		<View>

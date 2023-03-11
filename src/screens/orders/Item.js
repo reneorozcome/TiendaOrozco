@@ -9,7 +9,7 @@ const FormatDay = time => {
 }
 const OrderItem = ({ item, onDelete }) => {
     return <View style={{ ...styles.card, ...styles.listItem }}>
-        <TouchableOpacity onPress={() => onDelete(item)}>
+        <TouchableOpacity onPress={() => onDelete(item.id)}>
             <View>
                 <Text>{FormatDay(item.date)}</Text>
             </View>
